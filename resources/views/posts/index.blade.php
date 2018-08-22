@@ -67,7 +67,7 @@
                     <td class="mailbox-name">
                 		<strong class="text-light-blue">{{$p->title}}</strong>
                 		<br>
-                		<small class="text-light-blue">{{date('d/m/Y H:i', strtotime($p->createdAt))}} - {{$p->user->name}}</small>
+                		<small class="text-light-blue">{{date('d/m/Y H:i', strtotime($p->createdAt))}} - {{$p->user_id}}</small>
                     </td>
                     <td class="mailbox-subject">
                     @foreach($p->tags as $t)
