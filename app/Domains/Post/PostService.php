@@ -15,11 +15,31 @@ class PostService
 
 	public function store(array $data) : bool
 	{
-		$tags = $data['tags'];
-		unset($data['tags']);
+		$data['user_id'] = 1;
 
-		$data['slug'] = str_slug($data['title']);
+		try {
+			$post = $this->postRepository->create($data);
+			$post->tags()->attach($data['tags']);
+		} catch (\Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
 
-		$this->postRepository->store($data);
+		return true;
+	}
+
+	public function getPostBySlug(string $slug = null)
+	{
+		if (! $slug) {
+			return redirect('/404');
+		}
+
+		$post = $this->postRepository->getPostBySlug($slug);
+
+		if (! $post) {
+			return redirect('/404');
+		}
+
+		return $post;
 	}
 }

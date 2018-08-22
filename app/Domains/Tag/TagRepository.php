@@ -17,7 +17,7 @@ class TagRepository extends BaseRepository
     		INNER JOIN posts_tags
     			ON tags.id = posts_tags.tag_id
     		GROUP BY tags.name
-    		ORDER BY tags.name ASC
+            ORDER BY posts DESC
     	";
 
     	$tags = $this->db->select($query);

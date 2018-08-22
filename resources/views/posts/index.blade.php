@@ -35,7 +35,7 @@
               <ul class="nav nav-pills nav-stacked">
               @foreach($tags as $t)
                 <li>
-                	<a href="#">{{$t->name}}<span class="label label-primary pull-right">{{count($t->posts)}}</span></a>
+                	<a href="#">{{$t->name}}<span class="label label-primary pull-right">{{$t->posts}}</span></a>
               	</li>
               @endforeach
               </ul>
@@ -63,7 +63,7 @@
                 <table class="table table-hover table-striped">
                   <tbody>
                   @foreach($posts as $p)
-                  <tr onclick="window.location.href='{{route('posts.show', ['id' => $p->id])}}'" style="cursor: pointer;">
+                  <tr onclick="window.location.href='{{route('posts.show', ['slug' => $p->slug])}}'" style="cursor: pointer;">
                     <td class="mailbox-name">
                 		<strong class="text-light-blue">{{$p->title}}</strong>
                 		<br>

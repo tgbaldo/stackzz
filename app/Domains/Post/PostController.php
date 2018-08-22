@@ -46,9 +46,9 @@ class PostController extends Controller
     * retorna um post
     * @return view
     */
-    public function show(Request $request, string $id)
+    public function show(Request $request, string $slug)
     {
-        $post = null;
+        $post = $this->postService->getPostBySlug($slug);
 
         return view('posts/show', ['post' => $post]);
     }
@@ -88,12 +88,15 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required|unique:posts|max:255',
             'content' => 'required',
-            'tags' => 'required'
+            'tags' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
-        return $this->postService->store(
+        $this->postService->store(
             $request->all()
         );
+
+        return redirect(route('posts'));
     }
 
     /**
