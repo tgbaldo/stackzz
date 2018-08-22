@@ -3,9 +3,17 @@
 $connectionName = 'mysql';
 if (PHP_SAPI != 'cli' &&
     isset($_SERVER['SERVER_NAME']) &&
-    $_SERVER['SERVER_NAME'] != 'localhost'
+    $_SERVER['SERVER_NAME'] != 'localhost' &&
+    $_SERVER['SERVER_NAME'] != '127.0.0.1'
 ) {
     $connectionName = 'pgsql';
+
+    $url = parse_url(getenv("DATABASE_URL"));
+
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
 }
 
 return [
