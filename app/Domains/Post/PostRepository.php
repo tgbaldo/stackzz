@@ -20,4 +20,11 @@ class PostRepository extends BaseRepository
     		->where('slug', $slug)
     		->first();
     }
+
+    public function getAllPosts()
+    {
+        return $this->newQuery()
+            ->with('user')
+            ->get();
+    }
 }

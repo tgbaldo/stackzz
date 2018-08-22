@@ -35,11 +35,9 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $data = [
-            'posts' =>$this->postRepository->getAll(), 
+            'posts' =>$this->postRepository->getAllPosts(), 
             'tags' => $this->tagRepository->getTagsHavePosts()
         ];
-
-        dd($data['posts']);
         
         return view('posts/index', $data);
     }
