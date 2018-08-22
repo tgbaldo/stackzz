@@ -12,7 +12,6 @@
 */
 
 $router->get('/', function () {
-    echo "okok";exit;
     return redirect(route('posts'));
 });
 
