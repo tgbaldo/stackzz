@@ -25,6 +25,7 @@ class PostRepository extends BaseRepository
     {
         return $this->newQuery()
             ->with('user')
+            ->with('tags')
             ->get();
     }
 }
