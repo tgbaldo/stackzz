@@ -20,8 +20,6 @@ class PostService
 
 		$data['slug'] = str_slug($data['title']);
 
-		dd($data);
-
 		$this->postRepository->store($data);
 	}
 }

@@ -7,21 +7,25 @@ use App\Http\Controllers\Controller;
 use App\Domains\Post\PostRepository;
 use App\Domains\Post\PostService;
 use App\Domains\Tag\TagRepository;
+use App\Domains\Category\CategoryRepository;
 
 class PostController extends Controller
 {
     private $postRepository;
     private $postService;
     private $tagRepository;
+    private $categoryRepository;
 
     public function __construct(
         PostRepository $postRepository,
         PostService $postService,
-        TagRepository $tagRepository
+        TagRepository $tagRepository,
+        CategoryRepository $categoryRepository
     ) {
         $this->postRepository = $postRepository;
         $this->postService = $postService;
         $this->tagRepository = $tagRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -56,7 +60,8 @@ class PostController extends Controller
     public function create()
     {
         $data = [
-            'tags' => $this->tagRepository->lists()
+            'tags' => $this->tagRepository->lists(),
+            'categories' => $this->categoryRepository->lists()
         ];
 
         return view('posts/create', $data);

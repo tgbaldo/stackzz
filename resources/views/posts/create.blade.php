@@ -48,9 +48,10 @@
              			<div class="col-md-6">
              				<div class="form-group">
 		             			<label>Categoria</label>
-		             			<select class="form-control select2" name="category">
-		             				<option value="question">Pergunta</option>
-		             				<option value="contrib">Contribuições</option>
+		             			<select class="form-control select2" name="category_id">
+		             			@foreach($categories as $id => $name)
+                                <option value="{{$id}}">{{$name}}</option>
+                                @endforeach
 		             			</select>
 		             		</div>
              			</div>

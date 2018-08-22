@@ -5,6 +5,7 @@ namespace App\Domains\Post;
 use App\Domains\Tag\Tag;
 use App\Domains\User\User;
 use App\Domains\Comment\Comment;
+use App\Domains\Category\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -28,5 +29,10 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'posts_tags');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

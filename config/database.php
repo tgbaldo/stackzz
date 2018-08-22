@@ -1,11 +1,12 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
-
-$host = $url['host'];
-$username = $url['user'];
-$password = $url['pass'];
-$database = substr($url['path'], 1);
+$connectionName = 'mysql';
+if (PHP_SAPI != 'cli' &&
+    isset($_SERVER['SERVER_NAME']) &&
+    $_SERVER['SERVER_NAME'] != 'localhost'
+) {
+    $connectionName = 'pgsql';
+}
 
 return [
 
@@ -20,7 +21,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', $connectionName),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,12 +64,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $host,
+            'host' => isset($host) ? $host : null,
             // 'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'database' => isset($database) ? $database : null,
+            'username' => isset($username) ? $username : null,
+            'password' => isset($password) ? $password : null,
             // 'database' => env('DB_DATABASE', 'forge'),
             // 'username' => env('DB_USERNAME', 'forge'),
             // 'password' => env('DB_PASSWORD', ''),
