@@ -15,9 +15,7 @@
           <div class="box box-primary">
             <div class="box-body no-padding" style="margin-top: 20px">
              	<form class="form col-md-12" method="post" action="{{route('posts.store')}}">
-
                     @csrf
-
              		<div class="row">
              			<div class="col-md-12">
              				<div class="form-group">

@@ -5,18 +5,22 @@ namespace App\Domains\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Domains\Post\PostRepository;
+use App\Domains\Post\PostService;
 use App\Domains\Tag\TagRepository;
 
 class PostController extends Controller
 {
     private $postRepository;
+    private $postService;
     private $tagRepository;
 
     public function __construct(
         PostRepository $postRepository,
+        PostService $postService,
         TagRepository $tagRepository
     ) {
         $this->postRepository = $postRepository;
+        $this->postService = $postService;
         $this->tagRepository = $tagRepository;
     }
 
@@ -79,9 +83,12 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required|unique:posts|max:255',
             'content' => 'required',
+            'tags' => 'required'
         ]);
 
-        var_dump($validate);exit;
+        return $this->postService->store(
+            $request->all()
+        );
     }
 
     /**
