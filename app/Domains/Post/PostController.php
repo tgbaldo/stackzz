@@ -38,6 +38,8 @@ class PostController extends Controller
             'posts' =>$this->postRepository->getAll(), 
             'tags' => $this->tagRepository->getTagsHavePosts()
         ];
+
+        dd($data['posts']);
         
         return view('posts/index', $data);
     }

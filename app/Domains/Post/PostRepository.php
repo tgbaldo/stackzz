@@ -16,6 +16,7 @@ class PostRepository extends BaseRepository
 
     	return $this->newQuery()
     		->with('comments')
+            ->with('user')
     		->where('slug', $slug)
     		->first();
     }
