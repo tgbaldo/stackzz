@@ -21,11 +21,17 @@ class PostRepository extends BaseRepository
     		->first();
     }
 
-    public function getAllPosts()
+    public function getAllPosts(array $filters = [], int $take = 15)
     {
-        return $this->newQuery()
+        $query = $this->newQuery()
             ->with('user')
-            ->with('tags')
-            ->get();
+            ->with('tags');
+
+        if (isset($filters['busca']) && !empty($filters['busca'])) {
+            $query->where('title', 'like', '%'.$filters['busca'].'%');
+        }
+        
+        return $query->orderBy('id', 'DESC')
+            ->paginate($take);
     }
 }
