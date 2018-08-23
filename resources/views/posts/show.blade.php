@@ -31,7 +31,7 @@
             			<p>
             				<i>{{$post->user->name}}</i>
             				<br />
-            				<small><i>{{date('d/m/Y', strtotime($post->createdAt))}}</i></small>
+            				<small><i>{{date('d/m/Y H:i', strtotime($post->created_at))}}</i></small>
             			</p>
             		</div>
             	</div>            	
