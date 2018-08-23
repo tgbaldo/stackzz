@@ -60,7 +60,7 @@
                   <div class="direct-chat-msg" style="margin-top: 30px">
                     <div class="direct-chat-info clearfix">
                       <span class="direct-chat-name pull-left">{{$c->user->name}}</span>
-                      <span class="direct-chat-timestamp pull-right">{{date('d/m/Y H:i', strtotime($c->createdAt))}}</span>
+                      <span class="direct-chat-timestamp pull-right">{{date('d/m/Y H:i', strtotime($c->created_at))}}</span>
                     </div>
                     <img class="direct-chat-img" src="/img/user1-128x128.jpg" alt="Message User Image">
                     <div class="direct-chat-text">
