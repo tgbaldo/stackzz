@@ -57,7 +57,7 @@
               <div class="row">
                 <div class="col-md-12">
                   @foreach($post->comments as $c)
-                  <div class="direct-chat-msg" style="margin-top: 30px">
+                  <div class="direct-chat-msg">
                     <div class="direct-chat-info clearfix">
                       <span class="direct-chat-name pull-left">{{$c->user->name}}</span>
                       <span class="direct-chat-timestamp pull-right">{{date('d/m/Y H:i', strtotime($c->created_at))}}</span>
