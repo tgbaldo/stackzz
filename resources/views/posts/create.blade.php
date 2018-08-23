@@ -20,7 +20,7 @@
              			<div class="col-md-12">
              				<div class="form-group">
 		             			<label>Título</label>
-		             			<input type="text" name="title" class="form-control">
+		             			<input type="text" name="title" class="form-control" autofocus="">
 		             		</div>
              			</div>
              		</div>
