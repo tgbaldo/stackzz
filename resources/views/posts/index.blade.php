@@ -17,7 +17,7 @@
 	-->
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content container">
       <div class="row">
         <div class="col-md-3">
           <a href="{{route('posts.create')}}" class="btn btn-primary btn-block margin-bottom">Postar</a>

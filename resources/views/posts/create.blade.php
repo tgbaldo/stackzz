@@ -3,13 +3,13 @@
 @section('content')
 
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header container">
       <h1>
         Novo post
       </h1>
     </section>
 
-    <section class="content">
+    <section class="content container">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-primary">
