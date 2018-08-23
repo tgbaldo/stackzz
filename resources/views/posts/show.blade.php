@@ -64,7 +64,7 @@
                     </div>
                     <img class="direct-chat-img" src="/img/user1-128x128.jpg" alt="Message User Image">
                     <div class="direct-chat-text">
-                      {{$c->content}}
+                      {!! $c->content !!}
                     </div>
                   </div>
                   @endforeach
@@ -76,13 +76,38 @@
       </div>
       @endif
 
-    </section>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-primary">
 
-    <script>
-	  $(function () {
-	    CKEDITOR.replace('editor1')
-	    $('.ckeditor').wysihtml5()
-	  })
-	</script>
+            <div class="box-header with-border">
+              <h3 class="box-title">Fazer um comentário</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                </div>
+              </div>
+
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <form id="form-comments" class="form" method="post" action="{{route('comments.store')}}">
+                    @csrf
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                    <div class="form-group">
+                      <textarea class="form-control editor" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success">Enviar comentário</button>
+                    </div>
+                  </form>
+                </div>
+              </div>             
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
 @endsection

@@ -253,14 +253,15 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
-<script src="/ckeditor/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 <script src="/select2/dist/js/select2.full.min.js"></script>
 
+<script src="/js/scripts.js"></script>
+
 <script type="text/javascript">
-  $('.ckeditor').wysihtml5();
+  $('.editor').wysihtml5();
   $('.select2').select2();
 </script>
 

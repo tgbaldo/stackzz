@@ -28,7 +28,7 @@
              			<div class="col-md-12">
              				<div class="form-group">
 		             			<label>Conteúdo</label>
-		             			<textarea class="form-control ckeditor" name="content"></textarea>
+		             			<textarea class="form-control editor" name="content"></textarea>
 		             		</div>
              			</div>
              		</div>

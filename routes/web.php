@@ -69,3 +69,19 @@ $router->group(
         );
     }
 );
+
+// comments
+$router->group(
+    [
+        'prefix' => 'comments'
+    ],
+    function () use ($router) {
+        $router->post(
+            '/store',
+            [
+                'as' => 'comments.store',
+                'uses' => '\App\Domains\Comment\CommentController@store'
+            ]
+        );
+    }
+);
