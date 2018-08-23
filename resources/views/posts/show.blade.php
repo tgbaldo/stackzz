@@ -29,7 +29,7 @@
             	<div class="row" style="margin-top: 20px">
             		<div class="col-md-12">
             			<p>
-            				<i>{{$post->user->username}}</i>
+            				<i>{{$post->user->name}}</i>
             				<br />
             				<small><i>{{date('d/m/Y', strtotime($post->createdAt))}}</i></small>
             			</p>
