@@ -97,6 +97,9 @@
                 </div>
                 @elseif(count($posts) <= 0 && isset($filters['busca']))
                   <p class="text-center">Nenhum post encontrado com os critérios de busca</p>
+                  <p class="text-center">
+                    <a href="{{route('posts')}}" class="btn btn-default">Voltar</a>
+                  </p>
                 @else
                   <p class="text-center">Nenhum post cadastrado até o momento</p>
                 @endif
