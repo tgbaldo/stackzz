@@ -1,6 +1,9 @@
 
 
 $('#form-comments').on('submit', function (e) {
+
+  e.preventDefault();
+
   var data = $(this).serialize();
   var action = $(this).attr('action');
 

@@ -22,15 +22,15 @@ class CommentService
 	{
 		$data['user_id'] = 1;
 
-		try {
-			$comment = $this->commentRepository->create($data);
-		} catch (\Exception $e) {
-			return response()->json([
-                'status' => false,
-                'message' => 'Erro, tente novamente'
-            ]);
-		}
+		$comment = $this->commentRepository->create($data);
 
+		if (! $comment) {
+			return response()->json([
+	            'status' => false,
+	            'message' => 'Erro, tente novamente'
+	        ]);
+		}
+		
 		$post = $this->postRepository->findById($data['post_id']);
 
         return response()->json([
