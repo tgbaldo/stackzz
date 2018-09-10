@@ -22,6 +22,7 @@ $router->get('/404', function () {
 // posts
 $router->group(
     [
+        'middleware' => 'auth',
         'prefix' => 'posts'
     ],
     function () use ($router) {
@@ -80,6 +81,7 @@ $router->group(
 // comments
 $router->group(
     [
+        'middleware' => 'auth',
         'prefix' => 'comments'
     ],
     function () use ($router) {
@@ -92,3 +94,7 @@ $router->group(
         );
     }
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
