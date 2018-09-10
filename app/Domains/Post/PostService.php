@@ -3,6 +3,7 @@
 namespace App\Domains\Post;
 
 use App\Domains\Post\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
@@ -15,7 +16,7 @@ class PostService
 
 	public function store(array $data) : bool
 	{
-		$data['user_id'] = 1;
+		$data['user_id'] = Auth::id();
 
 		try {
 			$post = $this->postRepository->create($data);
