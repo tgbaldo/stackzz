@@ -108,7 +108,9 @@
               <!-- /.box-body -->
             
             <div class="box-footer no-padding">
-
+                <div class="col-md-12">
+                  {{$posts->links()}}
+                </div>
             </div>
           </div>
           <!-- /. box -->

@@ -21,7 +21,7 @@ class PostRepository extends BaseRepository
     		->first();
     }
 
-    public function getAllPosts(array $filters = [], int $take = 15)
+    public function getAllPosts(array $filters = [], int $take = 2)
     {
         $query = $this->newQuery()
             ->with('user')
