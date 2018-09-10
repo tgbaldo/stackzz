@@ -4,6 +4,7 @@ namespace App\Domains\Comment;
 
 use App\Domains\Comment\CommentRepository;
 use App\Domains\Post\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class CommentService
 {
@@ -20,7 +21,7 @@ class CommentService
 
 	public function store(array $data)
 	{
-		$data['user_id'] = 1;
+		$data['user_id'] = Auth::id();
 
 		$comment = $this->commentRepository->create($data);
 
