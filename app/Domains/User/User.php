@@ -4,6 +4,7 @@ namespace App\Domains\User;
 
 use App\Domains\Post\Post;
 use App\Domains\Post\Comment;
+use App\Domains\Social\Social;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -38,6 +39,11 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function social()
+    {
+        return $this->hasMany(Social::class);
     }
 
     public function setPasswordAttribute($password)

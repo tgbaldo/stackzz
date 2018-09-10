@@ -31,11 +31,14 @@
         @endif
       </div>
       <div class="row">
-        <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
         </div>
-        <!-- /.col -->
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <a href="{{url('login/google')}}">Login Google</a>
+        </div>
       </div>
     </form>
   </div>
