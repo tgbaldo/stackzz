@@ -21,7 +21,7 @@ class PostRepository extends BaseRepository
     		->first();
     }
 
-    public function getAllPosts(array $filters = [], int $take = 2)
+    public function getAllPosts(array $filters = [], int $take = 15)
     {
         $query = $this->newQuery()
             ->with('user')
@@ -33,5 +33,14 @@ class PostRepository extends BaseRepository
         
         return $query->orderBy('id', 'DESC')
             ->paginate($take);
+    }
+
+    public function getAllPostsByTagName(string $tagName, int $take = 15)
+    {
+        $posts = Post::whereHas('tags', function ($query) use ($tagName) {
+            $query->where('tags.name', '=', ''.$tagName.'');
+        })->paginate($take);
+
+        return $posts;
     }
 }

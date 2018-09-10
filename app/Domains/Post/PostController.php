@@ -49,6 +49,24 @@ class PostController extends Controller
     }
 
     /**
+    * retorna posts de uma determinada tag
+    * @return view
+    */
+    public function getAllPostsByTagName(Request $request, string $tagName)
+    {
+        $posts = $this->postRepository->getAllPostsByTagName($tagName);
+        $tags = $this->tagRepository->getTagsHavePosts();
+
+        $data = [
+            'posts' => $posts,
+            'tags' => $tags,
+            'filters' => $request->query()
+        ];
+        
+        return view('posts/index', $data);
+    }
+
+    /**
     * retorna um post
     * @return view
     */

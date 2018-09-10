@@ -67,6 +67,13 @@ $router->group(
                 'uses' => '\App\Domains\Post\PostController@update'
             ]
         );
+        $router->get(
+            '/tag/{tagName}',
+            [
+                'as' => 'posts.tag',
+                'uses' => '\App\Domains\Post\PostController@getAllPostsByTagName'
+            ]
+        );
     }
 );
 

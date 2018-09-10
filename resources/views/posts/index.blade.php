@@ -49,7 +49,7 @@
               <ul class="nav nav-pills nav-stacked">
               @foreach($tags as $t)
                 <li>
-                	<a href="#">{{$t->name}}<span class="label label-primary pull-right">{{$t->posts}}</span></a>
+                	<a href="{{route('posts.tag', ['tagName' => $t->name])}}">{{$t->name}}<span class="label label-primary pull-right">{{$t->posts}}</span></a>
               	</li>
               @endforeach
               </ul>
