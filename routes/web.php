@@ -95,6 +95,21 @@ $router->group(
     }
 );
 
+// users
+$router->group(
+    [
+        'prefix' => 'users'
+    ],
+    function () use ($router) {
+        $router->get('/logout',
+            [
+                'as' => 'users.logout',
+                'uses' => 'Auth\LoginController@logout'
+            ]
+        );
+    }
+);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
