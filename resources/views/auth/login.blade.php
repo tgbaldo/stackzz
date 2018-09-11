@@ -10,11 +10,11 @@
   <div class="login-box-body">
 	<!--<p class="login-box-msg">Faça seu login</p>-->
 	@if(session()->has('auth'))
-	    <div class="alert alert-info">
+	    <div class="alert alert-danger">
 	        {{ session()->get('auth') }}
 	    </div>
 	@endif
-	<a href="{{url('login/google')}}" class="btn btn-primary btn-block">Login com Google</a>
+	<a href="{{url('login/google')}}" class="btn btn-primary btn-lg btn-block">Login com Google</a>
   </div>
   <!-- /.login-box-body -->
 </div>
