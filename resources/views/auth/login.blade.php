@@ -10,7 +10,7 @@
   <div class="login-box-body">
 	<!--<p class="login-box-msg">Faça seu login</p>-->
 	@if(session()->has('auth'))
-	    <div class="alert alert-success">
+	    <div class="alert alert-info">
 	        {{ session()->get('auth') }}
 	    </div>
 	@endif
