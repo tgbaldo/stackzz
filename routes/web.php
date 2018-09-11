@@ -110,8 +110,11 @@ $router->group(
     }
 );
 
-Route::get('login/google', 'Auth\LoginController@redirectToProvider');
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/google', 'Auth\LoginController@redirectToProvider')
+    ->name('google.login');
+
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback')
+    ->name('google.callback');
 
 Auth::routes();
 

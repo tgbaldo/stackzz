@@ -73,7 +73,8 @@ class LoginController extends Controller
         }
 
         if (! $this->isEduzzEmail($userSocial->email)) {
-            throw new \Exception('Conta inválida!');
+            session()->flash('auth', 'Conta inválida, use uma conta da Eduzz!');
+            return redirect(route('google.login'));
         }
 
         $user = $this->userRepository->findUserByEmail(
