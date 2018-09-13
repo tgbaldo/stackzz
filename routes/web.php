@@ -15,8 +15,12 @@ $router->get('/', function () {
     return redirect(route('posts'));
 });
 
+$router->get('/home', function () {
+    return redirect(route('posts'));
+});
+
 $router->get('/404', function () {
-    echo "Página não encontrada";
+    exit('Página não encontrada');
 });
 
 // posts
@@ -110,12 +114,11 @@ $router->group(
     }
 );
 
-Route::get('login/google', 'Auth\LoginController@redirectToProvider')
+
+$router->get('login/google', 'Auth\LoginController@redirectToProvider')
     ->name('google.login');
 
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback')
+$router->get('login/google/callback', 'Auth\LoginController@handleProviderCallback')
     ->name('google.callback');
 
 Auth::routes();
-
-Route::get('/home', '\App\Domains\Post\PostController@index')->name('home');
