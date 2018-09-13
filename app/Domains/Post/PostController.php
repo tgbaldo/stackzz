@@ -136,7 +136,7 @@ class PostController extends Controller
     * @param Request $request
     * @return view
     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         $validate = $request->validate([
             'title' => 'required|unique:posts,id,'.$id.'|max:255',
