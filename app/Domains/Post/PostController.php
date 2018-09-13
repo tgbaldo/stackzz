@@ -97,11 +97,12 @@ class PostController extends Controller
     */
     public function edit(Request $request, string $slug)
     {
-        if (! $this->postService->isOwnerUserPost()) {
+        $post = $this->postService->getPostBySlug($slug);
+
+        if (! $this->postService->isOwnerUserPost($post->id)) {
             return redirect(route('posts'));
         }
 
-        $post = $this->postService->getPostBySlug($slug);
         $tagsPost = $post->tags->pluck('name', 'id')->toArray();
 
         $data = [
