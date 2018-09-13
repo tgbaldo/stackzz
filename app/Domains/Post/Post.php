@@ -42,4 +42,14 @@ class Post extends Model
         $this->attributes['slug'] = str_slug($value);
         $this->attributes['title'] = $value;
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($post) {
+            $post->tags()->detach();
+            $post->comments()->delete();
+        });
+    }
 }

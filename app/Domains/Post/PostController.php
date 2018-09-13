@@ -157,4 +157,16 @@ class PostController extends Controller
 
         return redirect(route('posts'));
     }
+
+    /**
+    * deleta um post
+    * @param Request $request
+    * @return view
+    */
+    public function delete(Request $request, int $id)
+    {
+        $this->postService->delete($id);
+
+        return redirect(route('posts'));
+    }
 }

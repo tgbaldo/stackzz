@@ -50,6 +50,17 @@ class PostService
 		return true;
 	}
 
+	public function delete(int $id)
+	{
+		$post = $this->postRepository->findById($id, true);
+
+        if (! $this->isOwnerUserPost($post->id)) {
+            return redirect(route('posts'));
+        }
+
+        return $post->delete();
+	}
+
 	public function getPostBySlug(string $slug = null)
 	{
 		if (! $slug) {

@@ -25,3 +25,11 @@ $('#form-comments').on('submit', function (e) {
     alert( "Request failed: " + textStatus );
   });
 });
+
+$('.delete-post').on('submit', function (e) {
+    
+    if (! confirm('Excluir post?')) {
+      e.preventDefault();
+    }
+
+});

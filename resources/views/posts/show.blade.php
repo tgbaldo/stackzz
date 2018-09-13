@@ -36,9 +36,18 @@
             		</div>
             	</div>   
               <div class="row">
-                <div class="col-md-2 pull-right">
+                <div class="col-md-3 pull-right">
                     @if(Auth::id() == $post->user->id)
-                      <a href="{{route('posts.edit', ['slug' => $post->slug])}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-edit"></i> Editar</a>
+                      <span class="pull-right">
+                        <a href="{{route('posts.edit', ['slug' => $post->slug])}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Editar</a>
+                        
+                        <form class="delete-post inline" method="post" action="{{route('posts.delete', ['id' => $post->id])}}">
+                          @csrf
+                          <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-danger delete-post"><i class="fa fa-edit"></i> Excluir</button>
+                        </form>
+
+                      </span>
                     @endif
                 </div>
               </div>         	

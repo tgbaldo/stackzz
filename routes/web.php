@@ -72,6 +72,13 @@ $router->group(
                 'uses' => '\App\Domains\Post\PostController@update'
             ]
         );
+        $router->delete(
+            '/{id}',
+            [
+                'as' => 'posts.delete',
+                'uses' => '\App\Domains\Post\PostController@delete'
+            ]
+        );
         $router->get(
             '/tag/{tagName}',
             [
