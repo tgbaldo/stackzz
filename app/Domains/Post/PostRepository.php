@@ -43,4 +43,14 @@ class PostRepository extends BaseRepository
 
         return $posts;
     }
+
+    public function isOwnerUserPost(int $postId, int $userId) : bool
+    {
+        $post = $this->newQuery()
+            ->where('id', '=', $postId)
+            ->where('user_id', '=', $userId)
+            ->first();
+
+        return (bool) $post;
+    }
 }

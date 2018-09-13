@@ -34,7 +34,14 @@
             				<small><i>{{date('d/m/Y H:i', strtotime($post->created_at))}}</i></small>
             			</p>
             		</div>
-            	</div>            	
+            	</div>   
+              <div class="row">
+                <div class="col-md-2 pull-right">
+                    @if(Auth::id() == $post->user->id)
+                      <a href="{{route('posts.edit', ['slug' => $post->slug])}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-edit"></i> Editar</a>
+                    @endif
+                </div>
+              </div>         	
             </div>
           </div>
         </div>

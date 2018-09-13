@@ -3,24 +3,25 @@
 @section('content')
 
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header container">
       <h1>
-        Editar post
+        Novo post
       </h1>
     </section>
 
-    <section class="content">
+    <section class="content container">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-body no-padding" style="margin-top: 20px">
-             	<form class="form col-md-12" method="post" action="{{route('posts.update',  ['id' => $post->id])}}">
+             	<form class="form col-md-12" method="post" action="{{route('posts.update', ['id' => $post->id])}}">
+                    @csrf
                     <input type="hidden" name="_method" value="PUT">
              		<div class="row">
              			<div class="col-md-12">
              				<div class="form-group">
 		             			<label>Título</label>
-		             			<input type="text" name="title" class="form-control" value="{{$post->title}}">
+		             			<input type="text" name="title" class="form-control" autofocus="" value="{{$post->title}}">
 		             		</div>
              			</div>
              		</div>
@@ -28,7 +29,7 @@
              			<div class="col-md-12">
              				<div class="form-group">
 		             			<label>Conteúdo</label>
-		             			<textarea class="form-control ckeditor" name="content">{{$post->content}}</textarea>
+		             			<textarea class="form-control editor" name="content">{{$post->content}}</textarea>
 		             		</div>
              			</div>
              		</div>
@@ -36,9 +37,9 @@
              			<div class="col-md-6">
              				<div class="form-group">
 	             			<label>Tags</label>
-	             			<select class="form-control select2" multiple name="tags[]">
-	             			@foreach($tags as $t)
-	             			<option value="{{$t->id}}" @if(in_array($t->id, $post->tags)) {{' selected'}} @endif>{{$t->name}}</option>
+	             			<select class="form-control select2" multiple="multiple" name="tags[]">
+	             			@foreach($tags as $id => $name)
+	             			<option value="{{$id}}"@if(in_array($name, $tagsPost)){{' selected'}}@endif>{{$name}}</option>
 	             			@endforeach
 	             			</select>
 	             		</div>
@@ -48,9 +49,10 @@
              			<div class="col-md-6">
              				<div class="form-group">
 		             			<label>Categoria</label>
-		             			<select class="form-control select2">
-		             				<option value="question"@if($post->category == 'question') {{' selected'}} @endif>Pergunta</option>
-		             				<option value="contrib"@if($post->category == 'contrib') {{' selected'}} @endif>Contribuição</option>
+		             			<select class="form-control select2" name="category_id">
+		             			@foreach($categories as $id => $name)
+                                <option value="{{$id}}"@if($id == $post->category->id){{' selected'}}@endif>{{$name}}</option>
+                                @endforeach
 		             			</select>
 		             		</div>
              			</div>

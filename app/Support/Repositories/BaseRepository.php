@@ -105,4 +105,12 @@ abstract class BaseRepository
         
         return $this->newQuery()->find($id);
     }
+
+    public function update(int $id, array $data)
+    {
+        $model = $this->newModel();
+
+        return $model->where('id', '=', $id)
+            ->update($data);
+    }
 }

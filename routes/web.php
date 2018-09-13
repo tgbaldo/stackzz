@@ -55,7 +55,7 @@ $router->group(
             ]
         );
         $router->get(
-            '/edit/{id}',
+            '/edit/{slug}',
             [
                 'as' => 'posts.edit',
                 'uses' => '\App\Domains\Post\PostController@edit'

@@ -95,9 +95,17 @@ class PostController extends Controller
     * retorna view que edita um post
     * @return view
     */
-    public function edit(Request $request, string $id)
+    public function edit(Request $request, string $slug)
     {
-        $data = [];
+        $post = $this->postService->getPostBySlug($slug);
+        $tagsPost = $post->tags->pluck('name', 'id')->toArray();
+
+        $data = [
+            'tags' => $this->tagRepository->lists(),
+            'tagsPost' => $tagsPost,
+            'categories' => $this->categoryRepository->lists(),
+            'post' => $post
+        ];
 
         return view('posts/edit', $data);
     }
@@ -130,6 +138,18 @@ class PostController extends Controller
     */
     public function update(Request $request, string $id)
     {
+        $validate = $request->validate([
+            'title' => 'required|unique:posts,id,'.$id.'|max:255',
+            'content' => 'required',
+            'tags' => 'required',
+            'category_id' => 'required|exists:categories,id'
+        ]);
 
+        $this->postService->update(
+            $id,
+            $request->all()
+        );
+
+        return redirect(route('posts'));
     }
 }
