@@ -17,4 +17,4 @@ O login é feito via Google, somente para colaboradores da Eduzz.
 
 **Commits**
 
-Não existe (ainda) uma branch de desenvolvimento, então, quando cair na master vai direto para a produção no Heroku <code>https://stackzz.herokuapp.com</code>
+Não existe (ainda) uma branch de desenvolvimento, então, quando cair na master vai direto para a produção no Heroku https://stackzz.herokuapp.com
