@@ -1,7 +1,10 @@
 # Stackzz
 **Apresentação**
+
 Plataforma de colaboração de conteúdo, tipo fórum, onde o usuário poderá criar publicações do tipo "pergunta" ou "contribuição" (artigo).
+
 Qualquer uma das publicações poderão ter interações com outros usuários da plataforma por meio de comentários.
+
 O login é feito via Google, somente para colaboradores da Eduzz.
 
 **Configuração do ambiente**
