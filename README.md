@@ -12,8 +12,8 @@ O login é feito via Google, somente para colaboradores da Eduzz.
  1. Fazer o clone do repositório
  2. Criar um banco de dados sql (MySQL ou Postgres)
  3. Definir as configurações do banco no .env.example, renomeando o arquivo para .env
- 4. Executar as migrations: <code>php artisan migrate</code>
- 5. Erguer o servidor com artisan: <code>php artisan serve</code>
+ 4. Executar as migrations: php artisan migrate
+ 5. Erguer o servidor com artisan: php artisan serve
 
 **Commits**
 
