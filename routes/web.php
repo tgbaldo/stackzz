@@ -64,9 +64,13 @@ $router->get('/infusion/make', function () {
         'redirectUri'  => 'https://stackzz.herokuapp.com/infusion/callback',
     ));
 
-    $tasks = $infusionsoft->tasks()->all();
+    $fields = ['id'];
+    $result = $infusionsoft->contacts('xml')->findByEmail(
+        'naiarabarbosa@setelagoas.com.br',
+        $fields
+    );
 
-    response()->json($tasks);
+    response()->json($result);
 });
 
 $router->get('/', function () {
