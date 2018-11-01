@@ -14,8 +14,8 @@
 $router->get('/infusion', function () {
     
     $infusionsoft = new \Infusionsoft\Infusionsoft(array(
-        'clientId'     => 'XXXXXXXXXXXXXXXXXXXXXXXX',
-        'clientSecret' => 'XXXXXXXXXX',
+        'clientId'     => 'rdh4btg4heh6y7bfy5y9aarz',
+        'clientSecret' => 'GU3a2vcMGV',
         'redirectUri'  => 'https://stackzz.herokuapp.com/infusion/callback',
     ));
 
