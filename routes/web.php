@@ -54,6 +54,21 @@ $router->get('/infusion/callback', function () {
     echo "</pre>";
 });
 
+$router->get('/infusion/make', function () {
+    $token = $_GET['token'];
+    $endpoint = $_GET['endpoint'];
+
+    $infusionsoft = new \Infusionsoft\Infusionsoft(array(
+        'clientId'     => 'rdh4btg4heh6y7bfy5y9aarz',
+        'clientSecret' => 'GU3a2vcMGV',
+        'redirectUri'  => 'https://stackzz.herokuapp.com/infusion/callback',
+    ));
+
+    $tasks = $infusionsoft->taks()->all();
+
+    response()->json($tasks);
+});
+
 $router->get('/', function () {
     return redirect(route('posts'));
 });
