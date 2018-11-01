@@ -59,7 +59,7 @@ $router->get('/infusion/make', function () {
     $endpoint = $_GET['endpoint'];
 
     $infusionsoft = new \Infusionsoft\Infusionsoft(array(
-        'clientId'     => 'rdh4btg4heh6y7bfy5y9aarz',
+        'clientId'     => 'rdh4btg4heh6y7bfy5y9aarz999999999999999999999999999',
         'clientSecret' => 'GU3a2vcMGV',
         'redirectUri'  => 'https://stackzz.herokuapp.com/infusion/callback',
     ));
