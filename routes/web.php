@@ -41,6 +41,19 @@ $router->get('/infusion', function () {
     }
 });
 
+$router->get('/infusion/callback', function () {
+    
+    echo "POST<br><br>";
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+
+    echo "<br><br>GET<br><br>";
+    echo "<pre>";
+    print_r($_GET);
+    echo "</pre>";
+});
+
 $router->get('/', function () {
     return redirect(route('posts'));
 });
