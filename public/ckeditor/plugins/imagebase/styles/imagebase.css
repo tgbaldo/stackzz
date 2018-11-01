@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [data-cke-caption-hidden] {
 	display: none;
 }
@@ -7,3 +8,14 @@
 	color: rgba( 0, 0, 0, .4 );
 	content: attr( data-cke-caption-placeholder );
 }
+=======
+[data-cke-caption-hidden] {
+	display: none;
+}
+
+[data-cke-caption-placeholder]::before {
+	display: inline;
+	color: rgba( 0, 0, 0, .4 );
+	content: attr( data-cke-caption-placeholder );
+}
+>>>>>>> 6494f2f51c752cf1eee5b371f7622e5c2b782b8c

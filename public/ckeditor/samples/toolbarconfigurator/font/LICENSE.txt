@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Font license info
 
 
@@ -8,3 +9,15 @@ Font license info
    Author:    Dave Gandy
    License:   SIL ()
    Homepage:  http://fortawesome.github.com/Font-Awesome/
+=======
+Font license info
+
+
+## Font Awesome
+
+   Copyright (C) 2012 by Dave Gandy
+
+   Author:    Dave Gandy
+   License:   SIL ()
+   Homepage:  http://fortawesome.github.com/Font-Awesome/
+>>>>>>> 6494f2f51c752cf1eee5b371f7622e5c2b782b8c

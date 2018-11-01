@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div.cke_dialog_ui_scaytItemList {
 	border: 1px solid #c9cccf;
 }
@@ -21,3 +22,28 @@ div.cke_dialog_ui_scaytItemList {
 	width: 26px;
 	height: 26px;
 }
+=======
+div.cke_dialog_ui_scaytItemList {
+	border: 1px solid #c9cccf;
+}
+
+.cke_scaytItemList-child {
+	position: relative;
+	padding: 6px 30px 6px 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.cke_scaytItemList-child:hover {
+	background: #ebebeb;
+}
+
+.cke_scaytItemList-child .cke_scaytItemList_remove {
+	position: absolute;
+	top: 0;
+	right: 5px;
+	width: 26px;
+	height: 26px;
+}
+>>>>>>> 6494f2f51c752cf1eee5b371f7622e5c2b782b8c

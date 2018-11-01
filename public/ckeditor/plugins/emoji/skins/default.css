@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 .cke_emoji_suggestion_item {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-family: sans-serif, Arial, Verdana, "Trebuchet MS", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+=======
+.cke_emoji_suggestion_item {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+>>>>>>> 6494f2f51c752cf1eee5b371f7622e5c2b782b8c

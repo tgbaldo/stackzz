@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script>
 
 // Prevent from DOM clobbering.
@@ -11,3 +12,18 @@ if ( typeof window.opener._cke_htmlToLoad == 'string' ) {
 }
 
 </script>
+=======
+<script>
+
+// Prevent from DOM clobbering.
+if ( typeof window.opener._cke_htmlToLoad == 'string' ) {
+	var doc = document;
+	doc.open();
+	doc.write( window.opener._cke_htmlToLoad );
+	doc.close();
+
+	delete window.opener._cke_htmlToLoad;
+}
+
+</script>
+>>>>>>> 6494f2f51c752cf1eee5b371f7622e5c2b782b8c
