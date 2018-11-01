@@ -64,7 +64,7 @@ $router->get('/infusion/make', function () {
         'redirectUri'  => 'https://stackzz.herokuapp.com/infusion/callback',
     ));
 
-    $tasks = $infusionsoft->contacts('xml')->tags();
+    $tasks = $infusionsoft->taks()->all();
 
     response()->json($tasks);
 });
