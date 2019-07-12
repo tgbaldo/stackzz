@@ -72,11 +72,6 @@ class LoginController extends Controller
             throw new \Exception('Erro na autenticação do Google!');
         }
 
-        if (! $this->isEduzzEmail($userSocial->email)) {
-            session()->flash('auth', 'Conta inválida, use uma conta da Eduzz!');
-            return redirect(route('login'));
-        }
-
         $user = $this->userRepository->findUserByEmail(
             $userSocial->email
         );
@@ -92,16 +87,5 @@ class LoginController extends Controller
         auth()->login($user, true);
 
         return redirect(route('posts'));
-    }
-
-    private function isEduzzEmail(string $email) : bool
-    {
-        $domain = substr(strrchr($email, '@'), 1);
-
-        if ($domain != 'eduzz.com') {
-            return false;
-        }
-
-        return true;
     }
 }
